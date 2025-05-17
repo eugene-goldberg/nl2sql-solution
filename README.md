@@ -1,6 +1,18 @@
 # NL2SQL Solution using LangChain and Semantic Kernel
 
-This project implements a production-ready natural language to SQL (NL2SQL) solution that leverages LangChain's SQL capabilities and integrates them as a plugin for Semantic Kernel. It allows you to translate natural language queries into T-SQL queries for SQL Server databases.
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A production-ready natural language to SQL (NL2SQL) solution that leverages LangChain's SQL capabilities and integrates them as a plugin for Microsoft Semantic Kernel. Transform natural language queries into SQL with the power of Azure OpenAI.
+
+## 🚀 Features
+
+- **Natural Language to SQL**: Convert plain English questions into SQL queries
+- **Semantic Kernel Integration**: Seamlessly works with Microsoft's AI orchestration framework
+- **Azure OpenAI Powered**: Uses GPT-3.5-Turbo for intelligent query translation
+- **Token Optimization**: Smart handling of model token limits
+- **Security First**: Read-only mode, input sanitization, and query auditing
+- **Self-Correcting**: Automatically adapts SQL syntax for different databases
 
 ## Architecture
 
@@ -30,9 +42,25 @@ The solution implements several security measures:
 3. **Logging**: Logs natural language queries and generated SQL for audit purposes
 4. **Schema Restriction**: Can be configured to access only specific tables
 
-## Getting Started
+## 🏁 Quick Start
 
-### Prerequisites
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/nl2sql-solution.git
+cd nl2sql-solution
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Copy and configure environment variables
+cp config/.env.example config/.env
+# Edit config/.env with your Azure OpenAI and database credentials
+
+# Run the example
+python examples/simple_example.py
+```
+
+## 📋 Prerequisites
 
 - Python 3.11 or later
 - SQL Server (local Docker or Azure SQL Database)
