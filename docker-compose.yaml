@@ -1,0 +1,19 @@
+version: '3.8' # Specifies the Docker Compose file format version
+
+services:
+  sqlserver: # You can name this service whatever you like, e.g., 'db', 'mssql'
+    image: mcr.microsoft.com/mssql/server:2022-latest # Official Microsoft SQL Server image for Linux
+    container_name: mssql_server_dev # Optional: A specific name for the container
+    environment:
+      ACCEPT_EULA: "Y" # Required: You must accept the End User License Agreement
+      MSSQL_SA_PASSWORD: "Kpss1s0k" # CHANGE THIS to a strong password for the 'sa' user
+      MSSQL_PID: "Developer" # Specifies the edition. 'Developer' is free for dev/test.
+                             # Other options: 'Express', 'Standard', 'Enterprise'.
+    ports:
+      - "1433:1433" # Maps port 1433 on your Codespace to port 1433 in the SQL Server container
+    volumes:
+      - mssql_data:/var/opt/mssql # Persists SQL Server data using a named volume
+
+volumes:
+  mssql_data: # Defines the named volume for data persistence
+    # driver: local # This is the default driver
